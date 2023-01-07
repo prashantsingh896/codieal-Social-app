@@ -1,8 +1,10 @@
-body{
-    margin: 0;
-    text-align: center;
-}
-
-li{
-    list-style: none;
-}
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column; }
+  body li {
+    list-style: none; }
+  body main {
+    height: 100%; }
+  body #layout-main {
+    min-height: 100vh; }

@@ -1,0 +1,27 @@
+header{
+
+    div{
+        font-family: sans-serif;
+        width: 100%;
+        height: 5%;
+        min-height: 50px;
+        background-color: #4267B2;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        ul{
+            li{
+                a:link, a:visited{
+                    text-decoration: none;
+                    color: white;   
+                }
+                a:hover, a:active{
+                    text-decoration: none;
+                    color: aliceblue;
+                }
+            }
+        }
+    }
+
+}
+
