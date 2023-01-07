@@ -1,9 +1,13 @@
 const User = require('../models/user');
 
 module.exports.profile = function (req, res) {
-    res.render('./user_profile.ejs', {
-        title: "Profile Page"
+    User.findById(req.params.id, function(err,user){
+        return res.render('user_profile',{
+            title: 'User Profile',
+            user: user
+        });
     });
+    
 }
 
 //render the sign Up page
