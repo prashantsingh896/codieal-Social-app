@@ -14,63 +14,7 @@
         <ul>
             <% for(post of posts){ %>
 
-                <li>
-
-                    <p>
-                            <%if(locals.user && locals.user.id==post.user.id){%>
-                                <small>
-                                    <a href="/posts/destroy/<%=post.id%>">X</a>
-                                </small>
-                            <%}%>
-
-                        <%= post.content %>
-                        <br>
-                        <small>
-                            <% if(post.user){%>
-                                <%= post.user.name%>
-                            <%}%>
-                        </small>
-                    </p>
-                    <!--Show comment form-->
-                    <div class="posts-comment">
-                        <%if(locals.user){%>
-                          
-                            <form action="/comments/create" method="post">
-                                <input type="text" name="content" placeholder="type here to add comment...">
-                                <input type="hidden" name="post" value="<%=post._id%>">
-                                <input type="submit" value="Add comment">
-                            </form>
-                            
-                        <%}%>
-                        
-                    </div>
-
-                    <div class="post-comments-list">
-                        <ul id="post-comments-<%=post._id%>">
-
-                            <% for(comment of post.comments){%>
-                                
-                                <p>
-                                    <%if(locals.user && locals.user.id==comment.user.id){%>
-                                        <small>
-                                            <a href="/comments/destroy/<%=comment.id%>">X</a>
-                                        </small>
-                                    <%}%>
-                                    <%=comment.content %>
-                                    <br>
-                                    <small>
-                                        <%=comment.user.name%>
-                                    </small>
-                                </p>
-
-                            <%}%>
-
-                        </ul>
-                    </div>
-
-                    <br><br>
-
-                </li>
+                <%- include('_post') -%> 
 
             <%}%>
 
