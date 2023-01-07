@@ -22,7 +22,7 @@ module.exports.signUp = function (req, res) {
 //render the sign In page
 module.exports.signIn = function (req, res) {
     if (req.isAuthenticated()) {
-        res.redirect('/users/profile');
+        return res.redirect('/users/profile');
     }
     else {
 
@@ -69,4 +69,11 @@ module.exports.create = function (req, res) {
 
 module.exports.createSession = function (req, res) {
     return res.redirect('/');
+}
+
+module.exports.destroySession = (req,res)=>{
+    req.logout((err)=>{
+        if(err){console.log('Error');}
+        return res.redirect('/');
+    });
 }
