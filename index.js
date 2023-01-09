@@ -27,6 +27,8 @@ app.use(cookieParser());
 
 //where to look for static files(here html, css, js, imgs etc)
 app.use(express.static('./assets'));
+// make the uploads path available to the browser
+app.use('/uploads',express.static(__dirname+'/uploads'));
 
 //set up view engine
 app.set('view engine', 'ejs');
