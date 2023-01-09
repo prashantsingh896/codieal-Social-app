@@ -11,19 +11,29 @@
                 url: "/posts/create",
                 data: newPostForm.serialize(),
                 success: function (data) {
-                    let newPost = newPostDom(data.data.post);
+                    let newPost = newPostDom(data.data);
                     $('#posts-list-container>ul').prepend(newPost);
+                    new Noty({
+                        theme: 'relax',
+                        text: "Post published!",
+                        type: 'success',
+                        layout: 'topRight',
+                        timeout: 1500
+                        
+                    }).show();
                 },error: function(error){
                     console.log(error.responseText);
                 }
             });
-            
         });
     }
 
     //method to create a post in DOM
 
-    let newPostDom = function(post){
+    let newPostDom = function(Post){
+        const post = Post.post;
+        const name = Post.name;
+        
             return $(`<li id="post-${post._id}">
 
                         <p>
@@ -37,7 +47,7 @@
                                     ${ post.content }
                                     <br>
                                     <small>
-                                        ${post.user.name}
+                                        ${name}
                                     </small>
                         </p>
 
@@ -76,6 +86,14 @@
                 url: $(deleteLink).prop('href'),
                 success: function(data){
                     $(`#post-${data.data.post_id}`).remove();
+                    new Noty({
+                        theme: 'relax',
+                        text: "Post deleted!",
+                        type: 'success',
+                        layout: 'topRight',
+                        timeout: 1500
+                        
+                    }).show();
                 },
                 error: function(err){
                     console.log(error.responseText);
