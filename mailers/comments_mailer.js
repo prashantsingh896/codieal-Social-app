@@ -1,7 +1,7 @@
 const nodeMailer = require('../config/nodemailer');
 const User = require('../models/user');
 
-exports.newComment = (email)=>{
+exports.newComment = (comment,email)=>{
     
     nodeMailer.transporter.sendMail({
         from:"prashantsingh896@gmail.com",
