@@ -1,10 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+body {
+  font-family: 'Open Sans', sans-serif; }
+
 #home-container {
-  display: flex; }
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; }
   #home-container #feed-posts {
     width: 70%;
-    padding: 10px; }
+    padding: 1rem;
+    text-align: left; }
+    #home-container #feed-posts h4 {
+      margin-bottom: 1rem; }
+    #home-container #feed-posts #new-post-form {
+      margin-bottom: 1rem; }
+      #home-container #feed-posts #new-post-form textarea {
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        resize: none; }
+        #home-container #feed-posts #new-post-form textarea:focus {
+          outline: none;
+          border-color: #1877f2; }
+      #home-container #feed-posts #new-post-form input[type="submit"] {
+        background-color: #1877f2;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        border: none;
+        font-size: 1rem; }
+        #home-container #feed-posts #new-post-form input[type="submit"]:hover {
+          cursor: pointer;
+          background-color: #1360db; }
+    #home-container #feed-posts #posts-list-container ul {
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+      #home-container #feed-posts #posts-list-container ul li {
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        background-color: #f5f5f5;
+        border-radius: 5px;
+        width: 80%;
+        border: 1px solid #ccc;
+        padding: 0.5rem; }
+        #home-container #feed-posts #posts-list-container ul li .comment-section {
+          padding-left: 1rem; }
+          #home-container #feed-posts #posts-list-container ul li .comment-section textarea {
+            width: 90%;
+            font-size: 0.8rem;
+            margin-top: 0.5rem; }
   #home-container #user-friends {
     width: 30%;
-    padding: 10px;
-    border-left: 1px solid lightgray;
-    height: 100%; }
+    padding: 1rem;
+    text-align: center; }
+    #home-container #user-friends h4 {
+      margin-bottom: 1rem; }
+    #home-container #user-friends ul {
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+    #home-container #user-friends p a {
+      color: #333;
+      text-decoration: none; }
+      #home-container #user-friends p a:hover {
+        color: #1877f2; }

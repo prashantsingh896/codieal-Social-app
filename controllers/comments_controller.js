@@ -22,7 +22,7 @@ module.exports.create = async function(req, res){
             
             let job = queue.create('emails',comment).save(function(err){
                 if(err){console.log('Error in sending to the queue',err);return;};
-                console.log('Job enqueued ',job.id);
+                console.log('Job enqueued ',job.id); 
             })
             
             req.flash('success','Comment added');

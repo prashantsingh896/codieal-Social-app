@@ -1,2 +1,53 @@
-body {
-  background-color: lightblue; }
+/* Add some margin to the top and bottom of the user details */
+p {
+  margin: 1rem 0; }
+
+/* Style the update section to make it more visually appealing */
+form {
+  border: 1px solid #ddd;
+  /* Add a border to the form */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  /* Add a subtle box shadow to the form */
+  padding: 2rem;
+  /* Add some padding to the form */
+  background-color: #f9f9f9;
+  /* Add a light background color to the form */
+  border-radius: 10px;
+  /* Add some border radius to the form */
+  /* Style the form inputs and labels */
+  /* Add some styling for the form label */
+  /* Add some styling for the submit button */ }
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="file"] {
+    margin-bottom: 1rem;
+    /* Adding margin to the bottom of the inputs */
+    padding: 0.5rem;
+    /* Adding padding to the inputs */
+    border-radius: 5px;
+    /* Adding border radius to the inputs */
+    border: 1px solid #ddd;
+    /* Add a border to the inputs */ }
+  form label {
+    font-size: 1.2rem;
+    /* Increasing the font size of the label */
+    margin-bottom: 1rem;
+    /* Adding margin to the bottom of the label */
+    display: block;
+    /* Making the label a block element */
+    /* Add some padding to the label */
+    padding: 0.5rem; }
+  form input[type="submit"] {
+    background-color: #4267b2;
+    /* Adding a background color to the button */
+    color: white;
+    /* Changing the text color of the button */
+    padding: 0.5rem 1rem;
+    /* Adding padding to the button */
+    border-radius: 5px;
+    /* Adding border radius to the button */
+    /* Add some hover effect on the button */ }
+    form input[type="submit"]:hover {
+      background-color: #3b5998;
+      /* Change the background color on hover */
+      cursor: pointer; }
