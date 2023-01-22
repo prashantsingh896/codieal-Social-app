@@ -1,5 +1,5 @@
 /* Style the post */
-.posts-list {
+div#posts-list-container {
   background-color: white;
   /* Add a background color to the post */
   padding: 1rem;
@@ -9,23 +9,23 @@
   margin-bottom: 1rem;
   /* Add some margin to the bottom of the post */
   /* Style the post content */ }
-  .posts-list p {
+  div#posts-list-container p {
     /* Style the delete post button */
     /* Style the post comments */
     /* Style the comments list */ }
-    .posts-list p small a.delete-post-button {
+    div#posts-list-container p small a.delete-post-button {
       color: red;
       /* Change the color of the button */ }
-      .posts-list p small a.delete-post-button:hover {
+      div#posts-list-container p small a.delete-post-button:hover {
         text-decoration: underline;
         /* Add an underline on hover */ }
-    .posts-list p .posts-comment {
+    div#posts-list-container p .posts-comment {
       /* Style the comment form */ }
-      .posts-list p .posts-comment form {
+      div#posts-list-container p .posts-comment form {
         /* Style the form inputs */ }
-        .posts-list p .posts-comment form input[type="text"],
-        .posts-list p .posts-comment form input[type="hidden"],
-        .posts-list p .posts-comment form input[type="submit"] {
+        div#posts-list-container p .posts-comment form input[type="text"],
+        div#posts-list-container p .posts-comment form input[type="hidden"],
+        div#posts-list-container p .posts-comment form input[type="submit"] {
           width: 100%;
           /* Make the inputs take up the full width */
           margin-bottom: 1rem;
@@ -36,11 +36,11 @@
           /* Add some border radius to the inputs */
           border: 1px solid #ddd;
           /* Add a border to the inputs */ }
-    .posts-list p .post-comments-list ul {
+    div#posts-list-container p .post-comments-list ul {
       list-style: none;
       /* Remove the bullet points */
       /* Style the comments */ }
-      .posts-list p .post-comments-list ul li {
+      div#posts-list-container p .post-comments-list ul li {
         background-color: #f5f5f5;
         /* Add a background color to the comments */
         padding: 0.5rem;

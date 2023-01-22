@@ -11,8 +11,9 @@
                 url: "/posts/create",
                 data: newPostForm.serialize(),
                 success: function (data) {
-                    let newPost = newPostDom(data.data);
+                    let newPost = newPostDom(data.data.post);
                     $('#posts-list-container>ul').prepend(newPost);
+                    new ToggleLike($(' .toggle-like-button', newPost));
                     new Noty({
                         theme: 'relax',
                         text: "Post published!",
@@ -30,10 +31,9 @@
 
     //method to create a post in DOM
 
-    let newPostDom = function(Post){
-        const post = Post.post;
-        const name = Post.name;
+    let newPostDom = function(post){
         
+        //show initial count as 0 for likes
             return $(`<li id="post-${post._id}">
 
                         <p>
@@ -47,9 +47,16 @@
                                     ${ post.content }
                                     <br>
                                     <small>
-                                        ${name}
+                                        ${post.user.name}
                                     </small>
-                        </p>
+                            </p>
+                                    <small>
+
+                                        <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&type="Post">
+                                            0 Likes
+                                        </a>
+
+                                    </small>
 
                         <div class="post-comments">
                            
