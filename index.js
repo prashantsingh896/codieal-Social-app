@@ -1,5 +1,6 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const env = require('./config/environment');
 const app = express();
 const port = 8000;
 //require for layouts
@@ -15,6 +16,7 @@ const MongoStore = require('connect-mongo');
 const sassMiddleware = require('node-sass-middleware');
 const flash = require('connect-flash');
 const customMware = require('./config/middleware');
+const path = require('path');
 
 var cors = require('cors');
 app.use(cors());
@@ -25,11 +27,11 @@ const chatServer = require('http').createServer(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
 chatServer.listen(5000);
 
-
+ 
 
 app.use(sassMiddleware({
-    src:'./assets/scss',
-    dest:'./assets/css',
+    src:path.join(__dirname,env.asset_path,'scss'),
+    dest:path.join(__dirname,env.asset_path,'css'),
     debug: true,
     outputStyle: 'extended',
     prefix:'/css'
@@ -39,7 +41,7 @@ app.use(express.urlencoded());
 app.use(cookieParser());
 
 //where to look for static files(here html, css, js, imgs etc)
-app.use(express.static('./assets'));
+app.use(express.static(env.asset_path));
 // make the uploads path available to the browser
 app.use('/uploads',express.static(__dirname+'/uploads'));
 
@@ -51,7 +53,7 @@ app.set('views', './views');
 app.use(session({
     name:'codeial',
     //TODO change before deployment
-    secret:"something",
+    secret:env.session_cookie_key,
     resave:false,
     saveUninitialized:false,
     cookie:{
