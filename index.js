@@ -1,5 +1,6 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
+require('dotenv').config()
 const env = require('./config/environment');
 const app = express();
 const port = 8000;
