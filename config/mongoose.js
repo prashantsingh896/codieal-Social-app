@@ -3,7 +3,7 @@ const env = require('./environment');
 
 let domain;
 if(process.env.NODE_ENV=="production"){
-    domain = "0.0.0.0"
+    domain = "127.0.0.1"
 }
 else{
     domain="localhost"
