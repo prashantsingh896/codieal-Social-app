@@ -4,7 +4,6 @@ const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 require('dotenv').config();
 const app = express();
-const port = 8000;
 //require for layouts
 var expressLayouts = require('express-ejs-layouts');
 //require databse
@@ -93,9 +92,9 @@ app.use(customMware.setFlash);
 app.use('/', require('./routes'));
 
 
-app.listen(port, function(err){
+app.listen(0, function(err){
     if(err){
         console.log(`Error in running the server: ${err}`);
     }
-    console.log(`Server is running on port ${port}`);
+    console.log(`Server is running`);
 });
