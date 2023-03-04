@@ -29,7 +29,7 @@ app.use(morgan(env.morgan.mode, env.morgan.options))
 //set up the chat server  
 const chatServer = require('http').createServer(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
-chatServer.listen(5000);
+chatServer.listen(0);
 
 if(process.env.NODE_ENV=="development"){
     app.use(sassMiddleware({
