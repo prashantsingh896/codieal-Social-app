@@ -8,6 +8,7 @@ if(process.env.NODE_ENV=="production"){
 else{
     uri=`mongodb://localhost/${env.db}`;
 }
+console.log(uri);
 mongoose.connect(uri);
 
 const db = mongoose.connection;
