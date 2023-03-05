@@ -1,5 +1,4 @@
-<!-- CHANGE :: Creat the code for chat box -->
-<% if (locals.user){ %>
+\<% if (locals.user){ %>
 	<div id="user-chat-box">
 		<ul id="chat-messages-list">
 			<li class="other-message">
@@ -9,14 +8,58 @@
 				<span>
 					Self Message
 				</span>
-				
 			</li>
-
 		</ul>
 		<div id="chat-message-input-container">
 			<input id="chat-message-input" placeholder="Type message here">
 			<button id="send-message">Send</button>
 		</div>
-
 	</div>
 <% } %>
+
+<style>
+#user-chat-box {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+#chat-messages-list small {
+  display: block;
+  font-size: 12px;
+  color: #888;
+  margin-top: 5px;
+}
+</style>
+
+<script>
+const chatMessagesList = document.querySelector("#chat-messages-list");
+
+function scrollToBottom() {
+  chatMessagesList.scrollTop = chatMessagesList.scrollHeight;
+}
+
+scrollToBottom();
+
+document.querySelector("#send-message").addEventListener("click", () => {
+  const input = document.querySelector("#chat-message-input");
+  const message = input.value.trim();
+  if (message !== "") {
+    const messagesList = document.querySelector("#chat-messages-list");
+    const newMessage = document.createElement("li");
+    newMessage.classList.add("self-message");
+    newMessage.innerHTML = `<span>${message}</span><small><%=locals.user.name%></small>`;
+    messagesList.appendChild(newMessage);
+    input.value = "";
+    scrollToBottom();
+  }
+});
+
+
+// Listen for new messages and automatically scroll to the bottom
+const observer = new MutationObserver(scrollToBottom);
+observer.observe(chatMessagesList, { childList: true });
+</script>
