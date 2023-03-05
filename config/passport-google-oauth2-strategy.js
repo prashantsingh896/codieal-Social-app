@@ -8,7 +8,7 @@ const env = require('./environment');
 passport.use(new googleStrategy({
     clientID: env.google_client_id,
     clientSecret: env.google_client_secret,
-    callbackURL: "/auth/google/callback"
+    callbackURL: "http://codeial-social-app.online/auth/google/callback"
  }, function(accessToken, refreshToken, profile, done){
     User.findOne({email: profile.emails[0].value}).exec(function(err,user){
         if(err){console.log('Error in google strategy passport',err);return;};
