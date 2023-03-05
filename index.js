@@ -92,9 +92,9 @@ app.use(customMware.setFlash);
 app.use('/', require('./routes'));
 
 
-app.listen(0, function(err){
+const server = app.listen(0, function(err){
     if(err){
         console.log(`Error in running the server: ${err}`);
     }
-    console.log(`Server is running`);
+    console.log(`Server is running at port: `,server.address().port);
 });
