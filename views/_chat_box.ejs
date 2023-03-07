@@ -1,4 +1,4 @@
-\<% if (locals.user){ %>
+<% if (locals.user){ %>
 	<div id="user-chat-box">
 		<ul id="chat-messages-list">
 			<li class="other-message">
@@ -51,7 +51,18 @@ document.querySelector("#send-message").addEventListener("click", () => {
     const messagesList = document.querySelector("#chat-messages-list");
     const newMessage = document.createElement("li");
     newMessage.classList.add("self-message");
-    newMessage.innerHTML = `<span>${message}</span><small><%=locals.user.name%></small>`;
+    <% if(locals.user){%>
+
+      newMessage.innerHTML = `<span>${message}</span><small><%=locals.user.name%></small>`;
+    
+      <%}else{%>
+
+        newMessage.innerHTML = `<span>${message}</span><small></small>`;
+
+      <%}%>
+
+    
+    
     messagesList.appendChild(newMessage);
     input.value = "";
     scrollToBottom();
